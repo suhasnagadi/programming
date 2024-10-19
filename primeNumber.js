@@ -20,35 +20,30 @@ const primeNumbersTillNum = (limit) => {
 
 primeNumbersTillNum(100);
 
-const nthPrimeNumber = (n) =>{
+const nthPrimeNumber = (n) => {
+  let primeArray = [];
 
-    let primeArray = [];
+  for (i = 0; i > -1; i++) {
+    let flag = false;
 
-    for(i=0;i>-1;i++){
-
-        let flag = false;
-
-        for(j=2;j<i;j++){
-
-            if(i%j==0){
-
-                flag = true;
-            }
-        }
-
-        if(!flag){
-
-            primeArray.push(i);
-        }
-
-        if(primeArray.length==n+1){
-
-            break;
-        }
+    for (j = 2; j < i; j++) {
+      if (i % j == 0) {
+        flag = true;
+      }
     }
 
-    console.log(`The ${n} - th prime number is ${primeArray[primeArray.length-1]}`);
+    if (!flag) {
+      primeArray.push(i);
+    }
 
-}
+    if (primeArray.length == n + 1) {
+      break;
+    }
+  }
+
+  console.log(
+    `The ${n} - th prime number is ${primeArray[primeArray.length - 1]}`
+  );
+};
 
 nthPrimeNumber(10);
